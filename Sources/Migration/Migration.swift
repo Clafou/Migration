@@ -2,7 +2,7 @@ import Foundation
 
 public enum Migration {
     
-    static let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+    public static let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
 
     static var lastMigrationVersion: String {
         get {
@@ -12,7 +12,7 @@ public enum Migration {
         set { UserDefaults.standard.setValue(newValue, forKey: #function) }
     }
 
-    static func migrateToVersion(_ version: String, migrationBlock: () -> Void) {
+    public static func migrateToVersion(_ version: String, migrationBlock: () -> Void) {
         if (version.compare(lastMigrationVersion, options: .numeric) == .orderedDescending) &&
             (version.compare(appVersion, options: .numeric) != .orderedDescending) {
             migrationBlock()
@@ -20,7 +20,7 @@ public enum Migration {
         }
     }
     
-    static func reset() {
+    public static func reset() {
         lastMigrationVersion = ""
     }
 }

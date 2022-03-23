@@ -8,11 +8,11 @@ This is a drop-in replacement of [MTMigration](https://github.com/mysterioustrou
 
 ## Installation
 
-Using Xcode, add a package dependency with URL ""https://github.com/Clafou/Migration.git"
+Using Xcode, add a package dependency with URL "https://github.com/Clafou/Migration.git"
 
 ## Usage
 
-Call `migrateToVersion` with a version number and a block, and Migration will
+Add `import Migration` then call `migrateToVersion` with a version number and a block, and Migration will
 ensure that the block of code is only ever run once for that version.
 
 ```swift
